@@ -6,7 +6,7 @@ namespace ScientificEvents.Domain.Models.Aggregates
     {
         public Person Person { get; set; }
 
-        public Fair Event { get; set; }
+        public Fair Fair { get; set; }
 
         public string AccommodationAddress { get; set; }
 
