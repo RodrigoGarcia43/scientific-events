@@ -2,10 +2,10 @@
 
 namespace ScientificEvents.Domain.Models.Relationships
 {
-    public class WorkPresentation
+    public class WorkAuthorship
     {
         // Navigation properties
+        public Person Person { get; set; }
         public Work Work { get; set; }
-        public Event Event { get; set; }
     }
 }

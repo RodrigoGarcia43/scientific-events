@@ -9,12 +9,10 @@ namespace ScientificEvents.Domain.Models.Entities
 
         // Attributes
         public string Location { get; set; }
-
         public int Area { get; set; }
 
         // Navigation properties
         public Fair Fair { get; set; }
-
         public ICollection<Product> Products { get; set; }
     }
 }
