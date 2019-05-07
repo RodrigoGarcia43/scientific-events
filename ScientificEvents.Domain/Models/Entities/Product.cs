@@ -2,10 +2,15 @@ namespace ScientificEvents.Domain.Models.Entities
 {
     public class Product
     {
-        public string Code;
+        // Primary key
+        public string Code { get; set; }
 
-        public string Name;
+        // Atributes
+        public string Name { get; set; }
 
-        public string Description;
+        public string Description { get; set; }
+
+        // Navigation property
+        public Stand Stand { get; set; }
     }
 }
