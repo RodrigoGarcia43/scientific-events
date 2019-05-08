@@ -50,7 +50,7 @@ namespace ScientificEvents.Api.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteAsync (string id)
         {
-            bool deleted = await _personService.Delete(id);
+            bool deleted = await _personService.DeleteAsync(id);
 
             if (!deleted)
             {
