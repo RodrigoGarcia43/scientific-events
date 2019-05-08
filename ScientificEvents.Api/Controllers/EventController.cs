@@ -21,17 +21,17 @@ namespace ScientificEvents.Api.Controllers
 
         // GET api/Event
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<EventDto>>> GetAllAsync()
+        public async Task<ActionResult<IEnumerable<SummaryEventDto>>> GetAllAsync()
         {
-            var events = await _eventService.ListAsync;
+            var events = await _eventService.ListAsync();
             return events;
         }
 
         // GET api/Event/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<EventDto>> GetAsync(int id)
+        public async Task<ActionResult<EventDto>> GetAsync(string code)
         {
-            var event_ = await _eventService.GetAsync;
+            var event_ = await _eventService.GetAsync(code);
             return event_;
         }
 
@@ -41,7 +41,7 @@ namespace ScientificEvents.Api.Controllers
         {
             var event_ = await _EventService.CreateAsync(newEvent);
 
-            return CreatedAtAction(nameof(GetAsync), new { id = Event.Id }, event_);
+            return CreatedAtAction(nameof(GetAsync), new { id = event_.code }, event_);
         }
 
         // DELETE api/Event

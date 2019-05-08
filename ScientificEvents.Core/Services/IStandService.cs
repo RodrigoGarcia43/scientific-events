@@ -1,15 +1,15 @@
-
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ScientificEvents.Core.Dtos;
 
+
 namespace ScientificEvents.Core.Services
 {
-    public interface IPersonService
+    public interface IStandService
     {
-        Task<IEnumerable<PersonDto>> ListAsync();
-        Task<PersonDto> GetAsync(string id);
-        Task<NewPersonDto> CreateAsync(NewPersonDto person);
+        Task<IEnumerable<StandDto>> ListAsync();
+        Task<StandDto> GetAsync(string id);
+        Task<NewStandDto> CreateAsync(NewStandDto stand);
         Task<bool> DeleteAsync(string id);
     }
 }

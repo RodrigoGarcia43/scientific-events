@@ -1,14 +1,15 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ScientificEvents.API.Domain.Models;
+using ScientificEvents.Core.Dtos;
+
 
 namespace ScientificEvents.Core.Services
 {
     public interface IEventService
     {
-        Task<IEnumerable<EventDto>> ListAsync();
-        Task<EventDto> GetAsync(string id);
-        Task<NewEventDto> CreateAsync(NewEventDto event_);
-        Task<bool> DeleteAsync(string id);
+        Task<IEnumerable<SummaryEventDto>> ListAsync();
+        Task<EventDto> GetAsync(string code);
+        Task<EventDto> CreateAsync(NewEventDto event_);
+        Task<bool> DeleteAsync(string code);
     }
 }
