@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ScientificEvents.API.Domain.Services;
-using ScientificEvents.API.Domain.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using ScientificEvents.Core.Services;
 using ScientificEvents.Core.Dtos;
@@ -23,7 +21,7 @@ namespace ScientificEvents.Api.Controllers
 
         // GET api/ParticipationType
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ParticipationTypeDto>>> GetAllAsync()
+        public async Task<ActionResult<ICollection<ParticipationTypeDto>>> GetAllAsync()
         {
             var participationTypes = await _participationTypeService.ListAsync;
             return participationTypes;
@@ -43,7 +41,7 @@ namespace ScientificEvents.Api.Controllers
         {
             var participationType = await _participationTypeService.CreateAsync(newParticipationType);
 
-            return CreatedAtAction(nameof(GetAsync), new { id = participationType.Id }, participationType);
+            return CreatedAtAction(nameof(GetAsync), new { id = participationType.Name }, participationType);
         }
 
         // DELETE api/ParticipationType

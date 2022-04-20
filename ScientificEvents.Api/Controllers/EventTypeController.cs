@@ -21,7 +21,7 @@ namespace ScientificEvents.Api.Controllers
 
         // GET api/EventType
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<EventTypeDto>>> GetAllAsync()
+        public async Task<ActionResult<ICollection<EventTypeDto>>> GetAllAsync()
         {
             var eventTypes = await _eventTypeService.ListAsync;
             return eventTypes;

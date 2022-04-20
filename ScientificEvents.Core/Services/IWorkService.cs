@@ -7,7 +7,7 @@ namespace ScientificEvents.Core.Services
 {
     public interface IWorkService
     {
-        Task<IEnumerable<WorkDto>> ListAsync();
+        Task<ICollection<WorkDto>> ListAsync(ICollection<string> ids);
         Task<WorkDto> GetAsync(string id);
         Task<NewWorkDto> CreateAsync(NewWorkDto work);
         Task<bool> DeleteAsync(string id);

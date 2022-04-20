@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ScientificEvents.API.Domain.Services;
-using ScientificEvents.API.Domain.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using ScientificEvents.Core.Services;
 using ScientificEvents.Core.Dtos;
@@ -23,7 +21,7 @@ namespace ScientificEvents.Api.Controllers
 
         // GET api/Stand
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<StandDto>>> GetAllAsync()
+        public async Task<ActionResult<ICollection<StandDto>>> GetAllAsync()
         {
             var stands = await _standService.ListAsync;
             return stands;
@@ -43,7 +41,7 @@ namespace ScientificEvents.Api.Controllers
         {
             var stand = await _standService.CreateAsync(newStand);
 
-            return CreatedAtAction(nameof(GetAsync), new { id = stand.Id }, stand);
+            return CreatedAtAction(nameof(GetAsync), new { id = stand.Code }, stand);
         }
 
         // DELETE api/Stand

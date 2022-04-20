@@ -7,7 +7,7 @@ namespace ScientificEvents.Core.Services
 {
     public interface IEventService
     {
-        Task<IEnumerable<SummaryEventDto>> ListAsync();
+        Task<ICollection<SummaryEventDto>> ListAsync();
         Task<EventDto> GetAsync(string code);
         Task<EventDto> CreateAsync(NewEventDto event_);
         Task<bool> DeleteAsync(string code);

@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ScientificEvents.API.Domain.Services;
-using ScientificEvents.API.Domain.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using ScientificEvents.Core.Services;
 using ScientificEvents.Core.Dtos;
@@ -23,7 +21,7 @@ namespace ScientificEvents.Api.Controllers
 
         // GET api/Person
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PersonDto>>> GetAllAsync()
+        public async Task<ActionResult<ICollection<PersonDto>>> GetAllAsync()
         {
             var persons = await _personService.ListAsync;
             return persons;

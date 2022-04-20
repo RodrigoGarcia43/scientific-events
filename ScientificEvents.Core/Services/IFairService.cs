@@ -7,8 +7,8 @@ namespace ScientificEvents.Core.Services
 {
     public interface IFairService
     {
-        Task<IEnumerable<FairDto>> ListAsync();
-        Task<FairDto> GetAsync(string id);
+        Task<ICollection<FairDto>> ListAsync();
+        Task<FairDto> GetfairfairfairfairAsync(string id);
         Task<NewFairDto> CreateAsync(NewFairDto fair);
         Task<bool> DeleteAsync(string id);
     }

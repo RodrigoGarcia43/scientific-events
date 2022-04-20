@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ScientificEvents.API.Domain.Services;
-using ScientificEvents.API.Domain.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using ScientificEvents.Core.Services;
 using ScientificEvents.Core.Dtos;
@@ -16,14 +14,14 @@ namespace ScientificEvents.Api.Controllers
     {
         private readonly IFairService _fairService;
 
-        public FairController (IFairService FairService)
+        public FairController (IFairService fairService)
         {
             _fairService = fairService;
         }
 
         // GET api/Fair
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<FairDto>>> GetAllAsync()
+        public async Task<ActionResult<ICollection<FairDto>>> GetAllAsync()
         {
             var fairs = await _fairService.ListAsync;
             return fairs;
@@ -43,7 +41,7 @@ namespace ScientificEvents.Api.Controllers
         {
             var fair = await _fairService.CreateAsync(newFair);
 
-            return CreatedAtAction(nameof(GetAsync), new { id = fair.Id }, fair);
+            return CreatedAtAction(nameof(GetAsync), new { id = fair.EventCode }, fair);
         }
 
         // DELETE api/Fair

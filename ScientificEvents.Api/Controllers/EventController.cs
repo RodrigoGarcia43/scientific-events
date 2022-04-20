@@ -21,7 +21,7 @@ namespace ScientificEvents.Api.Controllers
 
         // GET api/Event
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SummaryEventDto>>> GetAllAsync()
+        public async Task<ActionResult<ICollection<SummaryEventDto>>> GetAllAsync()
         {
             var events = await _eventService.ListAsync();
             return events;
@@ -39,16 +39,16 @@ namespace ScientificEvents.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<NewEventDto>> CreateAsync(NewEventDto newEvent)
         {
-            var event_ = await _EventService.CreateAsync(newEvent);
+            var event_ = await _eventService.CreateAsync(newEvent);
 
-            return CreatedAtAction(nameof(GetAsync), new { id = event_.code }, event_);
+            return CreatedAtAction(nameof(GetAsync), new { id = event_.Code }, event_);
         }
 
         // DELETE api/Event
         [HttpDelete]
         public async Task<IActionResult> DeleteAsync (string id)
         {
-            bool deleted = await _EventService.DeleteAsync(id);
+            bool deleted = await _eventService.DeleteAsync(id);
 
             if (!deleted)
             {

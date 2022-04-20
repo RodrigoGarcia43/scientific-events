@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ScientificEvents.API.Domain.Services;
-using ScientificEvents.API.Domain.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using ScientificEvents.Core.Services;
 using ScientificEvents.Core.Dtos;
@@ -23,7 +21,7 @@ namespace ScientificEvents.Api.Controllers
 
         // GET api/Product
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> GetAllAsync()
+        public async Task<ActionResult<ICollection<ProductDto>>> GetAllAsync()
         {
             var products = await _productService.ListAsync;
             return products;
@@ -43,7 +41,7 @@ namespace ScientificEvents.Api.Controllers
         {
             var product = await _productService.CreateAsync(newProduct);
 
-            return CreatedAtAction(nameof(GetAsync), new { id = product.Id }, product);
+            return CreatedAtAction(nameof(GetAsync), new { id = product.Code }, product);
         }
 
         // DELETE api/Product

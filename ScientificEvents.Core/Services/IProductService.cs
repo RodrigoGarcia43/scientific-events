@@ -7,7 +7,7 @@ namespace ScientificEvents.Core.Services
 {
     public interface IProductService
     {
-        Task<IEnumerable<ProductDto>> ListAsync();
+        Task<ICollection<ProductDto>> ListAsync();
         Task<ProductDto> GetAsync(string id);
         Task<NewProductDto> CreateAsync(NewProductDto product);
         Task<bool> DeleteAsync(string id);

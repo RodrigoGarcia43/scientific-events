@@ -7,7 +7,7 @@ namespace ScientificEvents.Core.Services
 {
     public interface IPersonService
     {
-        Task<IEnumerable<PersonDto>> ListAsync();
+        Task<ICollection<PersonDto>> ListAsync();
         Task<PersonDto> GetAsync(string id);
         Task<NewPersonDto> CreateAsync(NewPersonDto person);
         Task<bool> DeleteAsync(string id);

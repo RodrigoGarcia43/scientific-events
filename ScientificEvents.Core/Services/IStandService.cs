@@ -7,7 +7,7 @@ namespace ScientificEvents.Core.Services
 {
     public interface IStandService
     {
-        Task<IEnumerable<StandDto>> ListAsync();
+        Task<ICollection<StandDto>> ListAsync();
         Task<StandDto> GetAsync(string id);
         Task<NewStandDto> CreateAsync(NewStandDto stand);
         Task<bool> DeleteAsync(string id);
